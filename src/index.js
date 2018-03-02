@@ -12,6 +12,7 @@ import PostsNew from "./components/posts_new";
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
+//Map from specific route to general
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
