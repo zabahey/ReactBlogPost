@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { Field, reduxForm } from "redux-form";
 
 class PostsNew extends Component {
     render() {
         return(
-            <div>PostsNew!</div>
+            <div></div>
         );
     }
 }
 
-export default PostsNew;
+export default reduxForm({
+    form: 'PostsNewForm'
+})(PostsNew); 
