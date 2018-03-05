@@ -4,16 +4,20 @@ import { Field, reduxForm } from "redux-form";
 class PostsNew extends Component {
     renderField(field) {
         // ...field.input is object which contains a bunch of event handler
-        // and a bunch of differnt props e.g. onChange onBlur on Focus and value of hte input
+        // and a bunch of differnt props e.g. onChange onBlur on Focus and value of the input
+        const { meta: { touched, error } } = field;
+        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
         return (
-            <div className="form-group">
+            <div className={className}>
                 <label htmlFor={field.input.name}>{field.label}</label>
                 <input
                     className="form-control"
                     type="text"
                     {...field.input}
                 />
-                {field.meta.touched ? field.meta.error : ''}
+                <div className="text-help">
+                    {touched ? error : ''}
+                </div>
             </div>
         );
     }
